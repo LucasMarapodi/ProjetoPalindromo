@@ -1,0 +1,34 @@
+﻿@model ProjetoPalindromo.Models.PalavraModel
+
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@using (Html.BeginForm())
+{
+
+<div class="w-100 p-3 d-flex justify-content-center" style="background-color: #d6d6d6; ">
+    <div class="row m-2 p-1">
+        <div class="col">
+            <label>Insira uma Palavra:</label>
+            @Html.TextBoxFor(model => model.Palavra,
+                new
+                {
+                    @class = "form-control"
+                }
+           )
+            @Html.ValidationMessageFor(model => model.Palavra, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col">
+            <label>Palavra Invertida:</label>
+            <label style="height:38px;" class="form-control">@Model.PalavraInvertida</label>
+        </div>
+
+        <div class="col mt-4 ">
+            <button type="submit" class="btn btn-primary">Inverter</button>
+        </div>
+
+    </div> 
+</div>
+}
+
